@@ -1,14 +1,55 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>
-      Sewan
-    </title>
-  </head>
-  <body>
+<head>
+  <title>Sewan</title>
+  <style>
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+      display:none; /* Pehle hidden */
+      align-items:center;
+      justify-content:center;
+      height:100vh;
+      padding:30px;
+    }
+    .box{
+      display:flex;
+      gap:40px;
+      max-width:800px;
+    }
+    img{
+      width:260px;
+      height:auto;
+    }
+    p{
+      font-size:18px;
+      line-height:1.4;
+    }
+  </style>
+</head>
+<body id="fallback">
+
+  <div class="box">
     <img src="sewan2.png">
-    <script>
-  window.location.href="https://statistics-significant-mixer-bouquet.trycloudflare.com";
+
+    <p><b>Sewan</b> is currently closed due to a system issue.
+    If you want access, please contact the developer.</p>
+  </div>
+
+<script>
+  // Redirect try
+  let link = "https://statistics-significant-mixer-bouquet.trycloudflare.com";
+
+  // Try opening link
+  fetch(link, {mode:"no-cors"})
+    .then(() => { window.location.href = link; })
+    .catch(() => { document.getElementById("fallback").style.display = "flex"; });
+
+  // Agar 5 sec me kuch nahi hua, fallback show
+  setTimeout(() => {
+    document.getElementById("fallback").style.display = "flex";
+  }, 5000);
 </script>
-  </body>
+
 </html>
 
